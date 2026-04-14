@@ -1,0 +1,91 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.popular-listing{
+    @include m.flex-center;
+    padding: 80px 40px;
+
+    h3{
+        @include m.section-header;
+        @include m.mobile{
+            text-align: center;  
+            font-size: 35px;                
+        }
+    }
+    p{
+        text-align: center;
+    }
+    .listing{
+        @include m.grid;
+        padding: 35px 10px;
+        @include m.mobile{
+            grid-template-columns: 1fr;         
+        }
+
+        .listing-box{
+            box-shadow: 1px 4px 5px 5px rgba(77, 76, 76, 0.08);
+            transition: transform 2s;
+            border-radius: 7px;
+            @include m.flex-center;
+            padding: 0 15px;
+            width: 300px;
+            height: auto;
+            @include m.mobile{
+                width: 350px;
+            }
+
+            &:hover{
+                transform: translateY(-4px);
+                cursor: pointer;
+            }
+
+            img{
+                width:290px;
+                height: 150px;
+                margin: 5px 10px;
+                @include m.mobile{
+                    width: 340px;
+                }
+                border-radius: 5px;
+                object-fit: cover;
+                transition: all 1s;
+            }
+
+            .listing-text{
+                align-items: flex-start;
+                display: flex;
+                flex-direction: column;
+
+                h4{
+                    font-weight: bold;
+                    font-size: 19px;
+                    align-items: flex-start;
+                    padding: 5px 0;
+                }
+                p{
+                    line-height: 1.5;
+                    text-align: start;
+                }
+                button{
+                    display:flex;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 8px;
+                    background: v.$secondary-color;
+                    color: white;
+                    padding: v.$button-spacing;
+                    border-radius: v.$button-radius;
+                    border: none;
+                    cursor: pointer;
+                    width: fit-content;
+                    font-size: 16px;
+                    margin:12px 0 25px 0;
+
+                    i{
+                        font-size: 13px;
+                    }
+                }
+            }
+        }
+    }
+}

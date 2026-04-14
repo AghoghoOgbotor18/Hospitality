@@ -1,0 +1,49 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.about-section{
+    @include m.flex-center;
+    overflow-x: hidden;
+
+    .section-content{
+        @include m.section-content;
+        padding: 70px 30px;
+        @include m.mobile{
+            @include m.flex-col;
+            flex-direction: column-reverse;
+        }
+
+        img{
+            width: 400px;
+            height:500px;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .about{
+            @include m.text;
+            @include m.mobile{
+                width: 100%;
+            }
+
+            h3{
+                @include m.h3;
+            }
+            ul{
+                list-style-type: circle;
+                li{
+                    font-weight: bold;
+                    list-style: none;
+                }
+                .list{
+                    @include m.links;
+                    font-weight: bold;
+                }
+                
+            }
+        }
+            button{
+                @include m.button;
+            }
+        
+    }
+}

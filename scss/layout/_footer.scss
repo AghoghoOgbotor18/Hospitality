@@ -1,0 +1,112 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.footer{
+    @include m.flex-center;
+    background-color: v.$secondary-color;
+    color: v.$primary-color;
+    padding: 25px 30px;
+
+    .content{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 2rem;
+        @include m.mobile{
+            grid-template-columns: repeat(2, 1fr);
+            row-gap: 2rem;
+        }
+        
+            .about-hma{
+                @include m.footer-text;
+                width: 100%;
+
+                h3{
+                    font-size: 30px;
+                    color: v.$accent-color;
+                }
+                p{
+                    line-height: 1.5;
+                    
+                }
+            }
+            .links{
+                @include m.footer-text;
+                width: 100%;
+               
+
+                h4{
+                    font-size: 30px;
+                    color: v.$accent-color;
+                }
+
+                .link{
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+
+                    a{
+                        text-decoration: none;
+                        color: #fff;
+                        width: fit-content;
+
+                        &:hover{
+                            cursor: pointer;
+                            color: v.$accent-color;
+                        }
+                    }
+                }
+            }
+            .contact{
+                @include m.footer-text;
+                width: 100%;
+
+                h4{
+                    font-size: 30px;
+                    color: v.$accent-color;
+                }
+                .contact-info{
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+                }
+            }
+            .footer-socials{
+                @include m.footer-text;
+                width: 100%;
+
+                h4{
+                    font-size: 30px;
+                    color: v.$accent-color;
+                }
+
+                .socials{
+                    display: flex;
+                    flex-direction: column;
+                    gap:10px;
+
+                    a{
+                        text-decoration: none;
+                        color: #fff;
+                        display: flex;
+                        align-items: center;
+                        gap: 10px;
+                        width: fit-content;
+
+                        &:hover{
+                            cursor: pointer;
+                            color: v.$accent-color;
+                        }
+
+                        i{
+                            font-size: 22px;
+                            color: v.$accent-color;
+                        }
+                    }
+                }
+            }
+
+        }
+        #copyright{
+            margin-top: 2rem;
+        }
+}

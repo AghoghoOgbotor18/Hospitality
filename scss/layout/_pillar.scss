@@ -1,0 +1,108 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.core-pillars{
+    @include m.flex-center;
+    margin-bottom: 80px;
+
+    h3{
+        @include m.section-header;
+        @include m.mobile{
+            text-align: center;  
+            font-size: 35px;                
+        }
+    }
+    p{
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+    .pillars{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        gap: 2.5rem;
+        @include m.mobile{
+            @include m.flex-col;
+        }
+
+        .pillar{
+            cursor: pointer;
+            width: 250px;
+            height: 300px;
+            @include m.mobile{
+                width: 350px;
+                height: 400px;
+            }
+            border-radius: 10px;
+            perspective: 1000px;
+            
+            &:hover .pillar-inner{
+                transform: rotateY(180deg);
+            }
+            .pillar-inner{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                transition: transform 0.8s ease;
+                transform-style: preserve-3d;
+
+                .pillar-front, .pillar-back{
+                    position: absolute;
+                    inset: 0;
+                    width: 100%;
+                    height: 100%;
+                    backface-visibility: hidden;
+                    -webkit-backface-visibility: hidden;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 2rem;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 5px;
+                    border-radius: 10px;
+                    box-shadow: 1px 4px 5px 5px rgba(77, 76, 76, 0.08);
+                }
+                .pillar-front{
+                    background-color: v.$secondary-color;
+                    color: v.$primary-color;
+                    transform: rotateY(0deg);
+
+                    i{
+                        @include m.icon;
+                    }
+                    p{
+                        font-weight: bold;
+                        font-size: 30px;
+                    }
+                    
+                }
+                .front{
+                    gap: 5px;
+                    
+                    h4{
+                        color: v.$accent-color;
+                        font-size: 3rem;
+                    }
+                    p{
+                        font-size: 25px;
+                    }
+                    #p-text{
+                        margin-top: 2rem;
+                    }
+                }
+                .pillar-back{
+                    background-color: v.$primary-color;
+                    color: v.$secondary-color;
+                    border-bottom: 6px solid v.$secondary-color;
+                    transform: rotateY(180deg);
+
+                    p{
+                        font-size: 18px;
+                        line-height: 1.4;
+                        text-align: center;
+                    }
+                }
+            }  
+        }
+    }
+}

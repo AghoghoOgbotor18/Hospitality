@@ -1,0 +1,60 @@
+@use "./layout/header";
+@use "./abstracts/variables" as v;
+@use "./layout/hero";
+@use "./layout/about";
+@use "./layout/discovery";
+@use "./layout/categories";
+@use "./layout/listing";
+@use "./layout/pillar";
+@use "./layout/faq";
+@use "./layout/cta";
+@use "./layout/footer";
+@use "./layout/testimonial";
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: v.$font;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+body{
+    background: v.$primary-color;
+    overflow-x: hidden;
+}
+/* Initial hidden state */
+.animate {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease;
+}
+
+/* When visible */
+.animate.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* For staggered cards */
+.card {
+  opacity: 0;
+  transform: translateY(60px);
+  transition: all 0.8s ease;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* for section header */
+.section-header {
+  opacity: 0;
+  transform: scale(0.8) translateY(40px);
+  transition: all 0.6s ease;
+}
+
+.section-header.show {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}

@@ -1,0 +1,53 @@
+@use "../abstracts/mixins" as m;
+@use "../abstracts/variables" as v;
+
+.cta-section{
+    background-image:  url(/images/fancy-res.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    width:100%;
+    height: 100vh;
+    position: relative;
+    @include m.flex-center;
+    @include m.mobile{
+        background-position: center;
+        background-attachment: scroll;
+    }
+
+    .over-shadow{
+        @include m.overshadow;
+    }
+
+    .cta{
+        @include m.flex-center;
+        z-index: 100;
+        color: v.$primary-color;
+
+        h3{
+            font-size: 55px;
+            text-align: center; 
+            @include m.mobile{ 
+                font-size: 35px;                
+            }
+        }
+        p{
+            font-size: 18px;
+            width: 80%;
+            text-align: center;
+            line-height: 1.3;
+        }
+
+        .btns{
+            display:flex;
+            gap: 15px;
+
+            button{
+                @include m.button;
+            }
+        
+        }
+    }
+
+}
