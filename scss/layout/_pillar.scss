@@ -17,12 +17,14 @@
         text-align: center;
     }
     .pillars{
-        display:flex;
-        justify-content: center;
-        align-items: center;
+        display:grid;
+        grid-template-columns: repeat(4, 1fr);
         gap: 2.5rem;
+        @include m.tablet{
+            grid-template-columns: repeat(2, 1fr);         
+        }
         @include m.mobile{
-            @include m.flex-col;
+           grid-template-columns: 1fr;
         }
 
         .pillar{

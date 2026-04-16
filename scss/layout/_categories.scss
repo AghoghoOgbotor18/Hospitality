@@ -7,6 +7,9 @@
 
     h3{
         @include m.section-header;
+        @include m.tablet{
+            font-size: 40px;
+        }
         @include m.mobile{
             text-align: center;  
             font-size: 35px;                
@@ -18,6 +21,9 @@
     .category{
         @include m.grid;
         padding: 8px 20px;
+        @include m.tablet{
+            grid-template-columns: repeat(2, 1fr);         
+        }
         @include m.mobile{
             grid-template-columns: 1fr;         
         }

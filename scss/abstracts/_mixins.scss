@@ -75,11 +75,12 @@
     color: #010101;
     text-transform: capitalize;
     padding: 0.5rem 1rem;
+    text-align: center;
 }
 
 @mixin grid{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 45px;
     column-gap: 60px;
 }
@@ -131,6 +132,13 @@
 /* mobile view */
 @mixin mobile{
     @media only screen and (max-width: v.$mobile){
+        @content;
+    }
+}
+
+/* tablet view */
+@mixin tablet{
+    @media only screen and (max-width: v.$tablet){
         @content;
     }
 }
